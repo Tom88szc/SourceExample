@@ -1,4 +1,4 @@
-package com.ingenico.automation.tests;
+package com.ingenico.automation.tests.base;
 
 import org.junit.jupiter.api.BeforeAll;
 import com.ingenico.automation.config.LoggingConfig;

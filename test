@@ -1,0 +1,664 @@
+# ingenico-api-service-automation
+
+## Overview
+This project provides automated API tests for the Ingenico RTMS service.
+The goal is to validate API contracts, error handling, and key business flows
+using a lightweight, maintainable test automation framework.
+
+The project is intentionally kept simple and extensible, avoiding
+overengineering while remaining production-ready.
+
+---
+
+## Tech Stack
+- Java 17
+- Maven
+- JUnit 5
+- RestAssured
+- AssertJ
+
+---
+
+## Project Structure
+
+
+
+### Design Principles
+- Tests do not use `jsonPath`
+- Tests validate API contracts, not implementation details
+- Each test has a single responsibility
+- Configuration is centralized
+- Infrastructure is separated from test logic
+
+---
+
+## Covered Scenarios
+
+### Terminal API
+**GET /terminal/find/byTid/{terminalTid}**
+- Happy path (200, contract validation)
+- Negative path (404 when terminal does not exist)
+
+### Application API
+**POST /application/install/{applicationLabel}**
+- Happy path (successful installation)
+- Negative path (invalid application label)
+
+### Business Flow
+- GET terminal → POST install application → GET terminal
+
+This flow validates cooperation between endpoints without assuming
+synchronous backend behavior.
+
+---
+
+## What This Project Intentionally Does NOT Include
+- Authentication (can be added when required)
+- Retry logic (can be added if instability appears)
+- Cucumber / BDD (added only when business readability is required)
+- Database validation
+- Mocking
+
+These features are intentionally excluded to avoid premature complexity.
+
+---
+
+## How to Run Tests
+
+### Run all tests
+```bash
+mvn clean test
+
+
+
+mvn test -Dtest=TerminalApplicationFlowTest
+
+
+
+
+---
+
+# ✅ CHECKLISTA JAKOŚCI TESTÓW API (ARCHITEKT)
+
+Tę checklistę architekt **przechodzi w głowie lub na code review**.
+
+---
+
+## 1️⃣ Architektura projektu
+- [x] Czy testy są oddzielone od komunikacji HTTP?
+- [x] Czy konfiguracja jest w jednym miejscu?
+- [x] Czy BaseTest zawiera tylko setup?
+- [x] Czy struktura katalogów jest logiczna?
+
+---
+
+## 2️⃣ Jakość testów
+- [x] Czy każdy test ma **jedną odpowiedzialność**?
+- [x] Czy nazwy testów mówią *co* i *dlaczego*?
+- [x] Czy testy nie zależą od kolejności wykonania?
+- [x] Czy testy są deterministyczne?
+
+---
+
+## 3️⃣ Walidacja API
+- [x] Czy happy path waliduje kontrakt ze Swaggera?
+- [x] Czy są testy negatywne (404 / 400)?
+- [x] Czy testy NIE sprawdzają szczegółów implementacji?
+- [x] Czy flow test nie zakłada synchroniczności backendu?
+
+---
+
+## 4️⃣ Dane testowe
+- [x] Czy testy nie modyfikują trwałego stanu?
+- [x] Czy dane są czytelne i łatwe do zmiany?
+- [x] Czy brak zależności od DB?
+
+---
+
+## 5️⃣ Logging i debugowanie
+- [x] Czy w przypadku błędu widać request i response?
+- [x] Czy logging jest minimalny i globalny?
+- [x] Czy testy nie zawierają `System.out.println`?
+
+---
+
+## 6️⃣ CI / utrzymanie
+- [x] Czy testy nadają się do CI?
+- [x] Czy brak flaky testów?
+- [x] Czy zmiana base URL nie wymaga zmiany kodu?
+- [x] Czy nowy test da się dodać bez refactoringu?
+
+---
+
+## 7️⃣ Overengineering (najważniejsze)
+- [x] Czy projekt NIE zawiera nieużywanych mechanizmów?
+- [x] Czy każda klasa ma realny powód istnienia?
+- [x] Czy łatwo wytłumaczyć projekt nowej osobie w 10 minut?
+
+---
+
+# 🧠 Ostateczna myśl architekta
+
+> **Dobre testy API są nudne.
+> Nuda = stabilność = niskie koszty utrzymania.**
+
+Twój projekt **spełnia tę definicję**.
+
+---
+
+Jeśli chcesz, następnym krokiem możemy:
+- zrobić **code review „jak na rozmowie technicznej”**
+- rozrysować **mapę rozwoju projektu (kiedy co dodawać)**
+- przygotować **wersję „rekrutacyjną” projektu**
+
+Powiedz, w którą stronę idziemy dalej 👌
+
+
+
+
+---
+
+# ✅ CHECKLISTA JAKOŚCI TESTÓW API (ARCHITEKT)
+
+Tę checklistę architekt **przechodzi w głowie lub na code review**.
+
+---
+
+## 1️⃣ Architektura projektu
+- [x] Czy testy są oddzielone od komunikacji HTTP?
+- [x] Czy konfiguracja jest w jednym miejscu?
+- [x] Czy BaseTest zawiera tylko setup?
+- [x] Czy struktura katalogów jest logiczna?
+
+---
+
+## 2️⃣ Jakość testów
+- [x] Czy każdy test ma **jedną odpowiedzialność**?
+- [x] Czy nazwy testów mówią *co* i *dlaczego*?
+- [x] Czy testy nie zależą od kolejności wykonania?
+- [x] Czy testy są deterministyczne?
+
+---
+
+## 3️⃣ Walidacja API
+- [x] Czy happy path waliduje kontrakt ze Swaggera?
+- [x] Czy są testy negatywne (404 / 400)?
+- [x] Czy testy NIE sprawdzają szczegółów implementacji?
+- [x] Czy flow test nie zakłada synchroniczności backendu?
+
+---
+
+## 4️⃣ Dane testowe
+- [x] Czy testy nie modyfikują trwałego stanu?
+- [x] Czy dane są czytelne i łatwe do zmiany?
+- [x] Czy brak zależności od DB?
+
+---
+
+## 5️⃣ Logging i debugowanie
+- [x] Czy w przypadku błędu widać request i response?
+- [x] Czy logging jest minimalny i globalny?
+- [x] Czy testy nie zawierają `System.out.println`?
+
+---
+
+## 6️⃣ CI / utrzymanie
+- [x] Czy testy nadają się do CI?
+- [x] Czy brak flaky testów?
+- [x] Czy zmiana base URL nie wymaga zmiany kodu?
+- [x] Czy nowy test da się dodać bez refactoringu?
+
+---
+
+## 7️⃣ Overengineering (najważniejsze)
+- [x] Czy projekt NIE zawiera nieużywanych mechanizmów?
+- [x] Czy każda klasa ma realny powód istnienia?
+- [x] Czy łatwo wytłumaczyć projekt nowej osobie w 10 minut?
+
+---
+
+# 🧠 Ostateczna myśl architekta
+
+> **Dobre testy API są nudne.
+> Nuda = stabilność = niskie koszty utrzymania.**
+
+Twój projekt **spełnia tę definicję**.
+
+---
+
+Jeśli chcesz, następnym krokiem możemy:
+- zrobić **code review „jak na rozmowie technicznej”**
+- rozrysować **mapę rozwoju projektu (kiedy co dodawać)**
+- przygotować **wersję „rekrutacyjną” projektu**
+
+Powiedz, w którą stronę idziemy dalej 👌
+
+
+
+mvn test -Dtest=terminal.*
+mvn test -Dtest=flow.*
+
+
+🗺️ MAPA ROZWOJU PROJEKTU
+
+ingenico-api-service-automation
+
+🎯 Zasada nadrzędna (najważniejsza)
+
+Nowy element dodajemy tylko wtedy,
+gdy pojawia się realny problem, którego nie da się rozwiązać taniej.
+
+🟢 ETAP 0 — FUNDAMENT (✔️ JUŻ ZROBIONE)
+
+Cel: mieć działające, wiarygodne testy API
+
+Zakres
+
+Maven + Java 17
+
+RestAssured + JUnit 5
+
+Struktura katalogów
+
+BaseTest
+
+TestConfig
+
+Minimalny logging
+
+DTO zamiast jsonPath
+
+Testy
+
+GET happy
+
+GET 404
+
+POST happy
+
+POST negative
+
+Flow GET → POST → GET
+
+Decyzja architekta
+
+„To wystarczy, żeby ufać API.”
+
+⛔ NIC WIĘCEJ NA TYM ETAPIE
+
+🟡 ETAP 1 — STABILNOŚĆ CI (dodajemy tylko, jeśli trzeba)
+
+Kiedy?
+
+testy czasem failują w CI
+
+API bywa wolne
+
+sporadyczne 5xx
+
+Dodajemy
+
+⏱️ timeouty w RestAssured
+
+🔁 retry tylko na GET
+
+❌ brak retry na POST (ważne!)
+
+Nadal NIE dodajemy
+
+auth (jeśli niepotrzebny)
+
+Cucumber
+
+mocków
+
+Decyzja architekta
+
+„Stabilizujemy, nie rozbudowujemy.”
+
+🟠 ETAP 2 — OCHRONA KONTRAKTU (gdy API się zmienia)
+
+Kiedy?
+
+backend często zmienia response
+
+regresje wychodzą za późno
+
+frontend narzeka
+
+Dodajemy
+
+📄 JSON Schema Validation
+
+tylko dla GET
+
+tylko happy path
+
+schemy trzymane w resources/schema
+
+Nie robimy
+
+schem dla POST
+
+schem dla błędów
+
+schem w flow
+
+Decyzja architekta
+
+„Chronimy kontrakt, nie komplikujemy testów.”
+
+🟣 ETAP 3 — AUTORYZACJA (tylko jeśli API tego wymaga)
+
+Kiedy?
+
+backend wymaga Bearer / OAuth
+
+401 w testach
+
+Dodajemy
+
+AuthTokenProvider
+
+token ustawiany w BaseTest
+
+token:
+
+statyczny na start
+
+dynamiczny później
+
+Nadal NIE robimy
+
+refresh token
+
+mock auth
+
+security tests
+
+Decyzja architekta
+
+„Auth to infrastruktura, testy nie powinny o nim wiedzieć.”
+
+🔵 ETAP 4 — BIZNES & CZYTELNOŚĆ (BDD)
+
+Kiedy?
+
+testy mają być czytane przez:
+
+PO
+
+BA
+
+biznes
+
+flow testy są kluczowe
+
+Dodajemy
+
+Cucumber TYLKO dla flow
+
+Given / When / Then
+
+step definitions używają istniejących API clients
+
+NIE przenosimy
+
+wszystkich testów do Cucumbera
+
+negatywów
+
+testów kontraktowych
+
+Decyzja architekta
+
+„BDD tam, gdzie jest wartość komunikacyjna.”
+
+🟤 ETAP 5 — SKALA (dużo endpointów)
+
+Kiedy?
+
+30+ endpointów
+
+wiele zespołów
+
+długi czas utrzymania
+
+Dodajemy
+
+TestDataFactory
+
+ResponseValidator
+
+lepsze nazewnictwo
+
+pakiety per domena
+
+Nadal NIE
+
+E2E przez UI
+
+DB assertions
+
+nadmiar utili
+
+🔴 ETAP 6 — SYSTEM & PIPELINE
+
+Kiedy?
+
+testy lecą na każdym PR
+
+nightly runs
+
+raporty
+
+Dodajemy
+
+CI pipeline (GitLab/Jenkins)
+
+tagowanie testów
+
+profile środowisk
+
+raporty
+
+📌 PODSUMOWANIE W JEDNYM ZDANIU
+
+Projekt rośnie tylko wtedy, gdy pojawia się ból.
+Nie wcześniej.
+
+🧠 Jak architekt używa tej mapy?
+
+na review: „to jeszcze za wcześnie”
+
+na planowaniu: „to jest etap 2, nie 4”
+
+w rozmowie z biznesem: „to nie jest teraz potrzebne”
+
+
+
+
+
+
+
+
+dane
+
+chciałbym zapytać o dane, do      private static final String EXISTING_TID = "12345678"; co jeżeli tych danych jest dużo ?
+
+Bardzo trafne pytanie — to jest dokładnie moment przejścia z „example testów” na „prawdziwą automatyzację”.
+Odpowiem jak architekt, a nie „jak dopisać zmienną”.
+
+🔴 Problem, który właśnie zauważyłeś
+private static final String EXISTING_TID = "12345678";
+
+
+To jest OK na start, ale NIE SKALUJE SIĘ, gdy:
+
+masz dziesiątki / setki TID
+
+różne środowiska (local / test / stage)
+
+różne przypadki biznesowe
+
+dane się zmieniają
+
+Architekt nigdy nie zostawia tego w tej formie, gdy projekt rośnie.
+
+🧠 Jak architekt myśli o DANYCH TESTOWYCH
+
+Architekt zadaje 3 pytania:
+
+1️⃣ Skąd pochodzą dane?
+2️⃣ Jak często się zmieniają?
+3️⃣ Czy test ma znać konkretne wartości?
+
+Na tej podstawie wybiera strategię.
+
+🟢 ETAP 1 (teraz): MAŁO DANYCH → TestDataFactory
+Kiedy?
+
+kilka–kilkanaście TID
+
+dane raczej stałe
+
+chcesz czytelne testy
+
+Rozwiązanie (REKOMENDOWANE TERAZ)
+📁 data/TerminalTestData.java
+package pl.ingenico.automation.data;
+
+import java.util.List;
+
+public class TerminalTestData {
+
+    public static String anyExistingTid() {
+        return "12345678";
+    }
+
+    public static List<String> existingTids() {
+        return List.of(
+                "12345678",
+                "87654321",
+                "11223344"
+        );
+    }
+
+    public static String nonExistingTid() {
+        return "99999999";
+    }
+}
+
+W teście:
+String tid = TerminalTestData.anyExistingTid();
+
+
+✅ test nie zna szczegółów
+✅ łatwa zmiana
+✅ centralne miejsce
+
+🟡 ETAP 2: DUŻO DANYCH → parametryzacja testów
+Kiedy?
+
+chcesz sprawdzić wiele TID
+
+ten sam test, różne dane
+
+JUnit 5 – @ParameterizedTest
+@ParameterizedTest
+@ValueSource(strings = {
+        "12345678",
+        "87654321",
+        "11223344"
+})
+void shouldReturnTerminalForMultipleTids(String tid) {
+
+    var response = terminalApiClient.getTerminalByTid(tid);
+
+    assertThat(response.statusCode()).isEqualTo(200);
+}
+
+
+📌 Dane są wewnątrz testu, ale:
+
+test jest jeden
+
+dane są wariantami
+
+🟠 ETAP 3: DANE Z PLIKU (CSV / JSON)
+Kiedy?
+
+dane często się zmieniają
+
+nie chcesz rekompilować kodu
+
+różne środowiska
+
+📄 src/test/resources/data/terminals.csv
+tid,environment
+12345678,local
+87654321,test
+
+Loader:
+public class TerminalDataLoader {
+
+    public static List<String> loadExistingTids() {
+        // read CSV → return list
+    }
+}
+
+
+📌 Testy nie znają źródła danych.
+
+🔵 ETAP 4: DANE DYNAMICZNE (API / DB)
+Kiedy?
+
+środowisko się zmienia
+
+dane są tworzone dynamicznie
+
+testy E2E
+
+Przykład:
+String tid = terminalApiClient.getAnyActiveTerminalTid();
+
+
+📌 Test nie zna żadnych konkretnych ID
+📌 Test zna tylko intencję
+
+🔴 Czego architekt NIE robi (ważne)
+
+❌ nie trzyma setek ID w testach
+❌ nie kopiuje danych między klasami
+❌ nie hardcoduje środowisk
+❌ nie „na szybko” dopisuje kolejnych static final
+
+🧠 Jaką strategię wybrać TERAZ?
+Dla Twojego projektu (uczciwie):
+
+✅ ETAP 1 – TestDataFactory
+
+Bo:
+
+jesteś na etapie frameworku
+
+dane są przykładowe
+
+chcesz się skupić na architekturze
+
+🧠 Jak architekt by to podsumował zespołowi
+
+„Na razie trzymamy dane w jednym miejscu.
+Gdy ich przybędzie albo zaczną się zmieniać — zmienimy strategię.
+Testy nie będą musiały się zmieniać.”
+
+To jest kluczowa myśl.
+
+📌 Konkretny next step (proponuję)
+
+Chcesz, żebym:
+1️⃣ przerobił wszystkie testy na TerminalTestData
+2️⃣ pokazał parametryzowany test GET
+3️⃣ zaprojektował strategię danych pod CI / multi-env
+
+Wybierz numer — idziemy dalej jak architekci 💪

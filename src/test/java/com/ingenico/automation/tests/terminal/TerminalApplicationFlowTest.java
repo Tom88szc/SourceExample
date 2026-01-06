@@ -1,5 +1,6 @@
-package com.ingenico.automation.tests;
+package com.ingenico.automation.tests.terminal;
 
+import com.ingenico.automation.tests.base.BaseTest;
 import org.junit.jupiter.api.Test;
 import com.ingenico.automation.client.ApplicationApiClient;
 import com.ingenico.automation.client.TerminalApiClient;
