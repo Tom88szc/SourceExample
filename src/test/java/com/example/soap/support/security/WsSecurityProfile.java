@@ -33,3 +33,31 @@ public class WsSecurityProfile {
     public boolean isSignatureEnabled() { return signatureEnabled; }
     public boolean isEncryptionEnabled() { return encryptionEnabled; }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa opisuje jeden profil WS-Security.
+
+Co robi ten kod:
+1. Trzyma nazwę profilu, np. GBW.
+2. Trzyma ścieżkę do keystore.
+3. Trzyma hasło do keystore i hasło do klucza.
+4. Trzyma alias klucza.
+5. Trzyma informacje, czy podpis i szyfrowanie są włączone.
+
+Najprościej mówiąc:
+To jest zestaw ustawień potrzebnych do wysłania zabezpieczonego requestu.
+*/
+
+/*
+EDU komentarz:
+Ta klasa opisuje jeden profil WS-Security, na przykład GBW albo NSB.
+Możesz myśleć o niej jak o formularzu z polami:
+- ścieżka do keystore,
+- hasła,
+- alias klucza,
+- czy podpis ma być włączony,
+- czy szyfrowanie ma być włączone.
+
+Dzięki temu konfiguracja security jest zebrana w jednym miejscu i łatwiej ją przekazać dalej do klienta SOAP.
+*/

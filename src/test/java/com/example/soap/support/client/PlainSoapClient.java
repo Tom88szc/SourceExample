@@ -32,3 +32,33 @@ public class PlainSoapClient implements SoapClient {
         }
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa wysyła zwykły request SOAP bez WS-Security.
+
+Co robi ten kod:
+1. Tworzy klienta HTTP z timeoutem połączenia.
+2. Buduje request HTTP POST na podany endpoint.
+3. Ustawia nagłówki Content-Type i SOAPAction.
+4. Wstawia XML requestu do body.
+5. Wysyła request do serwera.
+6. Odbiera status HTTP i body odpowiedzi.
+7. Zwraca wynik jako obiekt SoapResponse.
+
+Najprościej mówiąc:
+To jest najprostszy klient do wysłania SOAP-a "tak jak leci", bez podpisu i bez szyfrowania.
+*/
+
+/*
+EDU komentarz:
+Ta klasa wysyła zwykły request SOAP bez WS-Security.
+Jej zadanie to:
+- zrobić połączenie HTTP,
+- ustawić podstawowe nagłówki,
+- wysłać XML,
+- odebrać odpowiedź.
+
+To jest najprostsza ścieżka komunikacji i od niej zwykle najlepiej zaczynać testy.
+Jeżeli plain SOAP nie działa, to najpierw naprawiamy ten poziom, a dopiero później dokładamy security.
+*/

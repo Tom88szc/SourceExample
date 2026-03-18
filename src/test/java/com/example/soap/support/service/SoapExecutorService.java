@@ -16,3 +16,26 @@ public class SoapExecutorService {
         return new WsSecuredSoapClient(profile).send(endpoint, soapAction, requestXml);
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa jest warstwą pośrednią do wysyłania requestów SOAP.
+
+Co robi ten kod:
+1. Dla trybu plain korzysta z PlainSoapClient.
+2. Dla trybu secured tworzy WsSecuredSoapClient z odpowiednim profilem security.
+3. Udostępnia proste metody, których używają stepy.
+
+Najprościej mówiąc:
+To jest jedno miejsce, które decyduje, jakim klientem wysłać dany request.
+*/
+
+/*
+EDU komentarz:
+Ta klasa jest prostym koordynatorem wysyłki.
+Nie buduje requestu i nie czyta plików. Ona tylko decyduje, którego klienta użyć:
+- `PlainSoapClient` dla zwykłego SOAP,
+- `WsSecuredSoapClient` dla SOAP z security.
+
+Dzięki temu kroki Cucumber nie muszą znać szczegółów technicznych wysyłki.
+*/

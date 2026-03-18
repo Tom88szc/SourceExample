@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9bd74b-e789-43d8-a21a-d7e894639d89" name="Changes" comment="add negatvie tests learning" />
+    <list default="true" id="4a9bd74b-e789-43d8-a21a-d7e894639d89" name="Changes" comment="add negatvie tests learning">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/runners/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/runners/RunCucumberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/steps/BaseSoapSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/steps/BaseSoapSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/steps/CommonSoapSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/steps/CommonSoapSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/steps/CucumberHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/steps/CucumberHooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/client/PlainSoapClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/client/PlainSoapClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/client/SoapClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/client/SoapClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/client/WsSecuredSoapClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/client/WsSecuredSoapClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/config/EnvironmentConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/config/EnvironmentConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/context/ScenarioContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/context/ScenarioContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/model/SoapResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/model/SoapResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/security/WsSecurityProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/security/WsSecurityProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/security/WsSecurityProfileResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/security/WsSecurityProfileResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/service/SoapExecutorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/service/SoapExecutorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/ArtifactWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/ArtifactWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/CorrelationIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/CorrelationIdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/MaskingUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/MaskingUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/TemplateEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/TemplateEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/TemplateLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/TemplateLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/XPathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/soap/support/utils/XPathUtils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +102,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773869441327</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add negatvie tests learning">
+      <option name="closed" value="true" />
+      <created>1773870879523</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773870879523</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add negatvie tests learning">
+      <option name="closed" value="true" />
+      <created>1773871008039</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773871008039</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

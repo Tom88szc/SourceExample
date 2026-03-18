@@ -77,3 +77,35 @@ public class CommonSoapSteps extends BaseSoapSteps {
         assertThat(XPathUtils.exists(scenarioContext.getResponse().getBody(), expression)).isTrue();
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa zawiera kroki Cucumber, które są używane bezpośrednio w plikach .feature.
+
+Co robi ten kod:
+1. Ustawia endpoint usługi na podstawie nazwy logicznej, np. "Token24Service".
+2. Ustawia SOAP Action, jeśli dana usługa tego wymaga.
+3. Pozwala wybrać profil WS-Security, np. GBW lub NSB.
+4. Wczytuje template XML z katalogu templates.
+5. Podmienia placeholdery w XML, np. ${correlationId} na prawdziwą wartość.
+6. Gdy w tabeli pojawi się AUTO_GENERATE, generuje nowe correlationId.
+7. Wysyła request plain albo secured.
+8. Sprawdza odpowiedź, np. status HTTP, fragment tekstu albo istnienie pola po XPath.
+
+Najprościej mówiąc:
+To jest klasa, która tłumaczy kroki z Gherkina na konkretne działania wykonywane przez framework.
+*/
+
+/*
+EDU komentarz:
+Tutaj są właściwe kroki używane w plikach `.feature`.
+Na przykład kroki typu:
+- ustaw endpoint,
+- załaduj template,
+- podmień pola,
+- wyślij request,
+- sprawdź odpowiedź.
+
+To właśnie ta klasa łączy Gherkina z kodem Java.
+Gdy Cucumber czyta krok z feature, szuka odpowiadającej mu metody właśnie tutaj.
+*/

@@ -35,3 +35,30 @@ public abstract class BaseSoapSteps {
         scenarioContext.setRequestMode("WS_SECURITY");
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa jest bazą dla wszystkich stepów Cucumber związanych z SOAP.
+
+Co robi ten kod:
+1. Trzyma wspólne obiekty używane przez inne klasy stepów:
+   - ScenarioContext: pamięć danych dla aktualnego scenariusza,
+   - EnvironmentConfig: odczyt URL-i i ustawień z properties,
+   - SoapExecutorService: warstwa, która naprawdę wysyła requesty,
+   - WsSecurityProfileResolver: odczytuje konfigurację profilu WS-Security.
+2. Metoda sendPlain() wysyła zwykły request SOAP bez WS-Security.
+3. Metoda sendSecured() pobiera profil security i wywołuje wysyłkę zabezpieczoną.
+4. Po wysyłce zapisuje odpowiedź do ScenarioContext, żeby kolejne kroki mogły ją sprawdzić.
+
+Najprościej mówiąc:
+To jest wspólna baza, żeby nie powtarzać tego samego kodu w wielu klasach stepów.
+*/
+
+/*
+EDU komentarz:
+To jest klasa bazowa dla kroków Cucumber związanych z SOAP.
+Trzyma wspólne zależności i pomocnicze metody, z których korzystają konkretne stepy.
+
+Można powiedzieć, że to skrzynka z narzędziami dla klas stepów.
+Dzięki temu nie powielasz tego samego kodu w wielu miejscach.
+*/

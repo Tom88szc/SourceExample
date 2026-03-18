@@ -19,3 +19,26 @@ public final class TemplateLoader {
         }
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa wczytuje template XML z katalogu resources/templates.
+
+Co robi ten kod:
+1. Dokleja prefix templates/ do ścieżki przekazanej z feature.
+2. Szuka pliku w classpath projektu testowego.
+3. Odczytuje cały plik jako tekst UTF-8.
+4. Zwraca zawartość XML.
+
+Najprościej mówiąc:
+Dzięki tej klasie możesz w .feature podać nazwę template, a framework sam go wczyta.
+*/
+
+/*
+EDU komentarz:
+Ta klasa ładuje template XML z katalogu resources.
+Jej zadanie to odczytać plik i zwrócić jego treść jako tekst.
+
+Można powiedzieć, że bierze z półki pusty formularz requestu,
+a potem inna klasa uzupełnia go danymi.
+*/

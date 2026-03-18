@@ -25,3 +25,26 @@ public final class XPathUtils {
         }
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa pomaga sprawdzać odpowiedź XML przez XPath.
+
+Co robi ten kod:
+1. Zamienia tekst XML na dokument DOM.
+2. Tworzy obiekt XPath.
+3. Wykonuje przekazane wyrażenie XPath na odpowiedzi.
+4. Zwraca true, jeśli wynik istnieje i nie jest pusty.
+
+Najprościej mówiąc:
+To jest pomocnik do sprawdzania, czy w odpowiedzi SOAP istnieje konkretne pole lub wartość.
+*/
+
+/*
+EDU komentarz:
+Ta klasa pomaga czytać wartości z XML za pomocą XPath.
+Dzięki temu możesz sprawdzić, czy w odpowiedzi istnieje konkretny element
+albo czy ma oczekiwaną wartość.
+
+To jest wygodniejsze i czytelniejsze niż ręczne szukanie tekstu w całym XML.
+*/

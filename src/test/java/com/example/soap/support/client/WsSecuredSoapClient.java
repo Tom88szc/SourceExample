@@ -28,3 +28,32 @@ public class WsSecuredSoapClient implements SoapClient {
         return delegate.send(endpoint, soapAction, requestXml);
     }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa jest szkieletem klienta SOAP z WS-Security.
+
+Co robi ten kod:
+1. Przyjmuje profil security, np. GBW albo NSB.
+2. Metoda send(...) na razie nie wysyła prawdziwego secured requestu.
+3. Zamiast tego rzuca błąd z jasną informacją, że trzeba jeszcze dopiąć Apache CXF / WSS4J.
+4. Metoda sendPrototypeWithoutSecurityHeader(...) jest pomocnicza i pozwala wysłać request zwykłym klientem,
+   ale bez nagłówka security. To jest tylko wariant roboczy do testów architektury.
+
+Najprościej mówiąc:
+To jest przygotowane miejsce na prawdziwą implementację WS-Security, ale jeszcze nie finalna wersja produkcyjna.
+*/
+
+/*
+EDU komentarz:
+Ta klasa jest miejscem na wysyłkę SOAP z WS-Security.
+W tej wersji projektu to jeszcze szkielet architektoniczny, czyli przygotowane miejsce na prawdziwą implementację.
+
+Docelowo właśnie tutaj powinno się znaleźć:
+- wczytanie profilu security,
+- dodanie podpisu,
+- dodanie szyfrowania,
+- użycie keystore i aliasu.
+
+Czyli to nie jest "gotowy silnik", ale bardzo ważny punkt rozbudowy projektu.
+*/

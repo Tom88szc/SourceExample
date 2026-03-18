@@ -43,3 +43,34 @@ public class ScenarioContext {
     public void put(String key, Object value) { data.put(key, value); }
     public Object get(String key) { return data.get(key); }
 }
+
+/*
+Wyjaśnienie po polsku:
+Ta klasa przechowuje dane jednego scenariusza testowego.
+
+Co robi ten kod:
+1. Trzyma endpoint, SOAP Action, request XML i odpowiedź.
+2. Trzyma informację, jaki tryb został użyty: plain albo WS-Security.
+3. Trzyma nazwę profilu security, jeśli scenariusz go używa.
+4. Ma metodę clear(), która czyści wszystko przed nowym scenariuszem.
+5. Ma też dodatkową mapę data, gdzie można schować własne dane pomocnicze.
+
+Najprościej mówiąc:
+To jest "pamięć scenariusza". Dzięki niej kolejne kroki mogą korzystać z tych samych danych.
+*/
+
+/*
+EDU komentarz:
+Ta klasa działa jak plecak jednego scenariusza.
+Wkładamy do niego wszystko, co może się przydać między krokami:
+- endpoint,
+- SOAP Action,
+- tryb requestu,
+- profil security,
+- request XML,
+- response,
+- dodatkowe dane pomocnicze.
+
+Dzięki temu jeden krok może coś przygotować, a następny krok może to odczytać.
+Bez tej klasy trzeba byłoby przekazywać dużo danych ręcznie między metodami.
+*/
