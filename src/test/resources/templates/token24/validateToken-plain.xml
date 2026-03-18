@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://www.firstdata.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <v2:validateToken>
+            <correlationId>${correlationId}</correlationId>
+            <tokenRequestorId>${tokenRequestorId}</tokenRequestorId>
+            <tokenReferenceId>${tokenReferenceId}</tokenReferenceId>
+            <deviceName>${deviceName}</deviceName>
+        </v2:validateToken>
+    </soapenv:Body>
+</soapenv:Envelope>
